@@ -6,8 +6,19 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Friend {
-    let friendName: String
+@Model
+class Friend {
+    let name: String
     let birthdate: Date
+
+    init(name: String, birthdate: Date) {
+        self.name = name
+        self.birthdate = birthdate
+    }
+
+    var isBirthdayToday: Bool {
+        Calendar.current.isDateInToday(birthdate)
+    }
 }
